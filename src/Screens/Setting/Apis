@@ -1,0 +1,27 @@
+API: http://3.7.48.196:8085/web/chnage-password
+Payload: {"current_password"="Admin@2021","new_password"="Admin@2021","UserID"="198"}
+Method: POST
+
+ <div className="toogle-btn" onClick={() => { setopen(!open) }}>
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </div>
+      {open && <div className="humber">
+        <div >
+          <ul className="side_bar">
+            <Link to="/dashboard" className="d-flex pb-2" state={{ title: "HOME" }}>
+              <div className="side_bar_list "><i className="fas fa-home pr-2 "></i></div>
+              <div className="side_bar_list" onClick={() => { setopen(!open) }}>Home</div>
+            </Link>
+            <Link to="report" className="d-flex pb-2" state={{ title: "REPORT" }}>
+              <div className="side_bar_list"><i className="fas fa-chart-line pr-2"></i></div>
+              <div className="side_bar_list" onClick={() => { setopen(!open) }}>Report</div>
+            </Link>
+            <Link to="setting" className="d-flex pb-2" state={{ title: "SETTING" }}>
+              <div className="side_bar_list"><i className="fas fa-cog pr-2"></i></div>
+              <div className="side_bar_list" onClick={() => { setopen(!open) }}>Setting</div>
+            </Link>
+
+          </ul>
+        </div>
+      </div>
+      }

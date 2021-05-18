@@ -1,0 +1,135 @@
+.header{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}
+
+.title{
+    position: absolute;
+    margin-left: 14px;
+    margin-top: 4px;
+}
+.UserId{
+   
+    size: 13px;
+    height: 18px;
+    border: 1px soild ;
+    top: 14px;
+    color: #A8A7A7;
+    width: 30px;
+    text-align: center;
+    font: normal normal 300 14px/18px Nunito;
+    letter-spacing: 0px;
+    color: #A8A7A7;
+    opacity: 1;
+}
+.UserName{
+    size: 13px;
+    font: normal normal 600 16px/24px Nunito;
+    letter-spacing: 0px;
+    color: #333333;
+    opacity: 1;
+    position: relative;
+    top: 1px;
+}
+.logout{
+    font: normal normal normal 14px/18px Source Sans Pro;
+    letter-spacing: 0px;
+    color: #333333;
+    opacity: 1;
+}
+.rounded{
+    border: 1px solid;
+    background-color: white;
+    color: #A8A7A7;
+    width: 35px;
+    height: 26px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #D8D8D8;
+    border-radius: 3px;
+    opacity: 1;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.humber{
+    width: 0;
+    height: 230px;
+    color: white;
+    display: none;
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 50px;
+    overflow-x: hidden;
+    background: rgb(red, green, blue);
+    transition: 500ms ease-in-out;
+
+}
+.toogle-btn{
+    display: none;
+}
+.side_bar_list{
+ color:white;
+ text-decoration: none;
+ font-size: 18px;
+ display: block;
+ transition: 0.3s;
+}
+.bg-blue{
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .humber-body{
+        width: 230px;
+        background-color: #0a7061;
+        height: 100%;
+        padding:15px 10px;
+        margin-left: -100%;
+        transition: 500ms ease-in-out;
+    }
+    .bg-blue{
+        background-color: #00000061;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        position: absolute;
+    }
+    .humber {
+      display:block;
+
+    }
+    .humber-bg{
+        background: rgba(0, 0, 0, 0.26);
+        margin: 0px;
+        width: 100%;
+    }
+    .toogle-btn{
+        display: block;
+        position: absolute;
+        top: 16px;
+    }
+    .title{
+        position: absolute;
+        left: 38px;
+        top: 13px;
+    }
+    .side_bar{
+        position: relative;
+        right:30px;
+    }
+    .admin_name{
+        position: relative;
+        top: 3px;
+
+    }
+  }

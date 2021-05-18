@@ -1,0 +1,104 @@
+/* Theme green */
+
+.lt-ad::before{
+	background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);
+}
+a:focus {
+    outline: 1px dotted;
+}
+.form-control:focus{
+    border-color: #7a9210;
+}
+.form-control:focus, .btn-outline-primary.focus, .btn-outline-primary:focus {
+    box-shadow: 0 0 0 1px rgba(122,146,16,0.43) !important;
+}
+
+/* buttons */
+.btn-primary {
+    background-color: #8b9a4a;
+    border-color: #8b9a4a;
+}
+.btn-primary:hover {
+    background-color: #677b0c;
+    border-color: #677b0c;
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #5b6d0a;
+    border-color: #5b6d0a;
+}
+.btn-outline-primary {
+    color: #8b9a4a;
+    border-color: #8b9a4a;
+}
+.btn-outline-primary:hover {
+    color: #fff;
+    background-color: #8b9a4a;
+    border-color: #8b9a4a;
+}
+.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #677b0c;
+    border-color: #677b0c;
+}
+
+
+
+
+/* loading */
+.loader:before, .loader:after{
+	background: #8b9a4a;
+}
+.loader:after {
+    background: #8b9a4a;
+}
+
+/* Dropdown */
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #8b9a4a;
+}
+button.dropdown-item:focus{
+	outline: none;
+}
+
+/* UI components */
+.lt-menu {
+    background-color: #8b9a4a;
+}
+.secondary-nav{
+    background-color: #f3f7e4;
+}
+.lt-nav-menu > li.active > a {
+    background-color: #60730d !important;
+}
+.lt-nav-menu > li > a:hover {
+    background-color: #7a8c30;
+}
+.profile-action-btns .btn {
+    border: 1px solid #60730e;
+}
+.user-pic-profile, .user-pic{
+	background-color: #e6ecc9;
+}
+.user-pic:hover {
+    border-color: #7a9210;
+}
+.new-page{
+	color: #5f7304;
+}
+.login-acc-info{
+    background-color: #e9ecd9;
+}
+.nav-menu-item.active {
+    background-color: #ddeaab;
+}
+.nav-menu-item.active path, .nav-menu-item.active ellipse {
+    fill: #8b9a4a;
+}
+/* modal */
+.esc-modal .modal-header {
+    background-color: #8b9a4a;
+    color: #fff;
+}
