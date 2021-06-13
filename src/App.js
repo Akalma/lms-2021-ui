@@ -5,7 +5,7 @@ import './Assets/css/main.css'
 import './Assets/css/main_app.css'
 import Dashboard from "./Screens/Dashboard/Dashboard";
 
-import { Router } from "@reach/router";
+import { Router } from "./Shared/Router";
 import { Fragment, useContext } from "react";
 import Spinner from "./Shared/Spinner/Spinner";
 import AppContext from "./Store/AppContext";

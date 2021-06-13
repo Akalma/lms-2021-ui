@@ -43,15 +43,17 @@ import './header.css'
   // Dropdown needs access to the DOM node in order to position the Menu
   const CustomToggle = forwardRef(({ children, onClick }, ref) => (
     <div
-      className="d-flex"
+      className="aic"
       href=""
       ref={ref}
       onClick={(e) => {
         e.preventDefault();
         onClick(e);
       }}>
-      {children}
-      &#x25bc;
+      <div>{children}</div>
+      <div className="ml-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="8" height="5" viewBox="0 0 9.887 6"><path fill="#888" className="a" d="M4.957,14.524l-4.4-4.4a.543.543,0,0,1,0-.768l.513-.513a.543.543,0,0,1,.768,0l3.5,3.487,3.5-3.487a.543.543,0,0,1,.768,0l.513.513a.543.543,0,0,1,0,.768l-4.4,4.4A.543.543,0,0,1,4.957,14.524Z" transform="translate(-0.398 -8.683)"></path></svg>
+      </div>
     </div>
   ));
   return (<div className="header" id="header">
@@ -74,7 +76,7 @@ import './header.css'
               </Link>
               </div>
               <div>
-              <Link to="report" className="d-flex pb-3" onClick={() => { setopen(!open) }}state={{ title: "REPORTS" }}>
+              <Link to="report" className="d-flex pb-3" onClick={() => { setopen(!open) }} state={{ title: "REPORTS" }}>
                 <div className="side_bar_list"><i className="fas fa-chart-line pr-3"></i></div>
                 <div className="side_bar_list" onClick={() => { setopen(!open) }}>Reports</div>
               </Link>
@@ -102,7 +104,7 @@ import './header.css'
             </div>
           </Dropdown.Toggle>
           <Dropdown.Menu as="div">
-            <Dropdown.Item eventKey="1" className="logout" onClick={logout}>{ICON_LOGOUT} &nbsp;Logout</Dropdown.Item>
+            <Dropdown.Item eventKey="1" className="logout" onClick={logout}>{ICON_LOGOUT} &nbsp;Log out</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       </div>

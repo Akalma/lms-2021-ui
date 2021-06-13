@@ -10,13 +10,13 @@ const Sidebar = ({ location }) => {
                 <div className="side-bar-sty">Home</div>
             </Link>
         </div>
-        <div className={`navMenu ${location.state.title === "REPORT" ? 'active' : ''}`}>
+        <div className={`navMenu ${location.state.title === "REPORTS" ? 'active' : ''}`}>
             <Link to="report" state={{ title: "REPORTS" }}>
                 <div><i className="fas fa-chart-line"></i></div>
                 <div className="side-bar-sty">Reports</div>
             </Link>
         </div>
-        <div className={`navMenu ${location.state.title === "SETTING" ? 'active' : ''}`}>
+        <div className={`navMenu ${location.state.title === "SETTINGS" ? 'active' : ''}`}>
             <Link to="setting" state={{ title: "SETTINGS" }}>
                 <div><i className="fas fa-cog"></i></div>
                 <div className="side-bar-sty">Settings</div>

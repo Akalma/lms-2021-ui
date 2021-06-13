@@ -1,10 +1,10 @@
 
-import { Router } from "@reach/router";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import Header from "../../Components/Header/Header";
 import Home from "../Home/Home";
 import Report from "../Report/Report";
 import Setting from "../Setting/Setting";
+import {Router} from '../../Shared/Router'
 
 const Dashboard = ({location}) => {
     return (

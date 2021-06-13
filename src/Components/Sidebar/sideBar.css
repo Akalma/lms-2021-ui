@@ -1,21 +1,21 @@
 .sideBarNav{
-    width: 70px;
     height: 100%;
     background: #149D89;
+    padding-top: 50px;
 }
 .navMenu{
     color: white;
     cursor: pointer;
-    padding: 10px 0px;
+    padding: 10px;
     font-size: 15px;
     text-align: center;
     align-items: center;
 }
 .sideBarNav .active{
-    background: #028571;
+    background: #0C8371;
 }
 .navMenu:hover{
-    background: #0a7061;
+    background: #05947e;
 
 }
 .navMenu a {
@@ -29,7 +29,7 @@
     background-color: transparent;
 }
 .side-bar-sty{
-    font: normal normal normal  16px/26px Nunito;
+    font: normal normal normal  14px/26px Nunito;
 }
 @media only screen and (max-width: 500px) {
     .sideBarNav{
