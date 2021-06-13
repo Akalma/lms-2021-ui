@@ -110,6 +110,7 @@ const Report = () => {
     setCurrentPage(1);
     fetchReports(false,1)
   }
+
   // ---for arranging download csv file formate correctly-----//
 
   const download_csv = (data) => {
@@ -119,9 +120,11 @@ const Report = () => {
     hiddenElement.download = 'people.csv';
     hiddenElement.click();
   }
-  return (<><div className="report_page ml-4">
-    <div className="row mt-4 ">
-      <div className="col-md-4 flx ">
+  return (<><div className="page_container ">
+    <div className="row  ">
+    <div className="col-md-8 mt-1">
+    <div className="report-header">
+      <div className="flx ">
         <div className="form-group aic">
           <label htmlFor="fromDate" className="ml-2 from_date">From</label>
           <input type="date" onChange={(e) => setFromDate(e.target.value)} max={preventMax} name="fromDate" className="form-control form-control-sm ml-2 " />
@@ -131,20 +134,17 @@ const Report = () => {
           <input type="date" max={new Date()} onChange={(e) => { setToDate(e.target.value); }} max={preventMax} name="toDate" className="form-control form-control-sm ml-2" />
         </div>
       </div>
-      <div className="col-md-2">
-        <div className=" form-group buttons text-right">
-          <button type="submit" className={`view_button ${(fromDate ===null || toDate===null) ? 'disabled' : ''}`} onClick={() => {
+      <div className="">
+        <div className=" form-group buttons text-right d-flex">
+          <button type="submit" className={`reset_button ${(fromDate ===null || toDate===null) ? 'disabled' : ''}`} onClick={() => {
             fetchReports();
             pagesData();
             setLoading(true);
           }} >VIEW</button>
-          <button type="Download" className={`ml-2 download_button ${(fromDate ===null || toDate===null) ? 'disabled' : ''}`} onClick={() => { fetchReports(true); }}><span>DOWNLOAD</span>
+          <button type="Download" className={`ml-2 reset_button ${(fromDate ===null || toDate===null) ? 'disabled' : ''}`} onClick={() => { fetchReports(true); }}><span>DOWNLOAD</span>
           </button>
         </div>
-      </div>
-    </div>
-    <div className="row">
-      <div className="col-md-6 mt-1">
+      </div></div>
         <div class="table-responsive-md table_border">
           <table className="table ">
             <thead className="table_style">
@@ -178,9 +178,8 @@ const Report = () => {
           </Pagination>
         </div>}
       </div>
-    </div>
   </div>
-
+  </div>
   </>)
 }
 

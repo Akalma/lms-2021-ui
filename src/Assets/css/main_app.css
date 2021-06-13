@@ -38,10 +38,8 @@ body {
 	letter-spacing: 0.2px;
 }
 .product-type {
-	font-weight: 400;
-	text-transform: uppercase;
-	letter-spacing: 3px;
-	color: #111;
+	font: normal normal 600 15px/20px Nunito;
+	color: #111111;
 }
 .log-carousel-container h3 {
 	font-weight: bold;
@@ -193,13 +191,13 @@ body {
     justify-content: center;
     color: white;
     padding: 44px;
-    text-align: justify;
+    text-align: center;
 }
  .lt-ad h1{
 	/* font-weight: 600;  */
 } 
 .lt-ad p{
-	margin-bottom: 150px;
+	margin-bottom: 100px;
 }
 .main-content {
 	flex: 1;
@@ -1739,6 +1737,10 @@ a.verify-pending {
 	border-width: 1.5px;
 	margin-right: 5px;
 }
+.form-signin .spinner-border{
+	width: 1rem;
+    height: 1rem;
+}
 .no-item-show {
 	text-align: center;
 	color: #888;
@@ -2426,9 +2428,7 @@ a.verify-pending {
 .data-rt-control {
 	margin-top: -3px;
 }
-.dashboard-page{
-	font-style: bold;
-}
+
 
 /* /Dashboard */
 
@@ -2743,6 +2743,10 @@ a.verify-pending {
   font-size: 12px;
   margin-left: 5px;
 }
+.page_container {
+	padding: 20px;
+    overflow-y: auto;
+}
 
 @media only screen and (max-width: 1200px) {
 	.hide-1200 {
@@ -2760,13 +2764,7 @@ a.verify-pending {
 			height: 100%;
 		  }
 }
-/* -----log-in------------ */
-.log-in-button[disabled]{
-	
 
- background: grey;
-
-}
 
 /* -------------------settings styles ---------*/
 
@@ -2802,25 +2800,31 @@ opacity: 1;
 }
 .reset_button{
     padding: 5px 31px;
-	height: 32px;
-	background-color: #E3E3E3;
-	text-align: center;
-	color:#333333;
-	border: none;
-
-	background: #E3E3E3 0% 0% no-repeat padding-box;
+    height: 32px;
+	width: 145px;
+    background-color: #E3E3E3;
+    text-align: center;
+    color: #333333;
+    font-size: 14px;
+    border: none;
+    font-weight: bolder;
+    background: #E3E3E3 0% 0% no-repeat padding-box;
 }
 .update_button{
 	padding: 5px 31px;
 	height:32px;
+	width: 145px;
 	background-color: #149D89;
 	color:white;
 	border:none;
+    font-size: 14px;
+    font-weight: bolder;
+
 
 }
 .update_button[disabled]
 {
- background: grey;
+ background: #159784bf;
 }
 .passWord-update{
 	position: relative;
@@ -2895,17 +2899,15 @@ opacity: 1;
 	opacity: 1;
 }
  .table_border{
-	border-top: 3px solid;
     color: #F0F0F0;
     padding: 0px;
-    height: 74vh;
-    overflow-y: auto;
+	font-size: 14px;
+    /* overflow-y: auto; */
 	 }
 .table_style{
 	background-color:#F0F0F0 0% 0% no-repeat padding-box;
 	text-align: left;
-	font: normal normal bold  16px/18px Nunito;
-	letter-spacing: 0px;
+	/* font: normal normal bold  16px/18px Nunito; */
 	color: #333333;
 	opacity: 1;
 }
@@ -2957,10 +2959,10 @@ opacity: 1;
 }
 .table thead th {
     vertical-align: bottom;
-    border-bottom: 2px solid #dee2e6;
+    border-bottom: 0px solid #dee2e6 !important;
+    border-top: 0px solid #dee2e6 !important;
     position: sticky;
-   
-	top: 0px;
+	top: -20px;
 	background-color: #F0F0F0;
 }
 
@@ -2968,12 +2970,12 @@ opacity: 1;
 	background-color:#F0F0F0
 }
 .table tr{
-    box-shadow: 0px 0px 1px 1px #DEDEDE;
+    box-shadow: 0px 0px 0px 1px #DEDEDE;
 }
 .table td {
-    padding: .5rem;
+	padding: .5rem .75rem;
     vertical-align: top;
-    border-top: 0px solid #dee2e6 !important; 
+    border-top: 0px solid #dee2e6 !important;
 }
 .pagination{
 	margin-top: 10px;
@@ -2987,6 +2989,10 @@ opacity: 1;
 
 .from_date {
     margin-bottom:0px !important;
+}
+.report-header{
+	border-bottom: 1.5px solid #00000038;
+
 }
 @media only screen and (max-width: 500px) {
     .pagination{

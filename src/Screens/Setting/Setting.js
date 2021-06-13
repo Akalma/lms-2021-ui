@@ -46,9 +46,7 @@ const Setting = () => {
             setSubmitting(false);
         }
     }
-    return <div>
-        <div>
-            <Formik
+    return  <Formik
                 enableReinitialize={true}
                 onSubmit={onSubmitted}
                 initialValues={state}
@@ -62,26 +60,26 @@ const Setting = () => {
                         isValid,
                         resetForm,
                         dirty,
-                    }) => <form onSubmit={handleSubmit}>
-                            <div className="row p-4">
+                    }) => <form onSubmit={handleSubmit}  className="page_container ">
+                            <div className="row ">
                                 <div className="col-md-6 col-sm-6">
                                     <div className="row">
-                                        <div className=" col-md-6 form-group currentpassword">
+                                        <div className=" col-md-8 form-group ">
                                             <label htmlFor="currentPassword">Enter current Password<span className="requried-field">*</span></label>
                                             <Field type="password" name="currentPassword" className={classNames("form-control curent_password-input")} />
-                                            {touched.currentPassword && errors.currentPassword && <label className="errorMessage" htmlFor="login-email">{errors.currentPassword}</label>}
+                                            {touched.currentPassword && errors.currentPassword && <label className="errorMessage text-danger" htmlFor="login-email">{errors.currentPassword}</label>}
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className=" col-md-6 form-group newpassword">
+                                        <div className=" col-md-8 form-group">
                                             <label htmlFor="newPassword" >Enter New Password</label>
                                             <Field type="password" name="newPassword" className={classNames("form-control newPassword_input")} />
-                                            {touched.newPassword && errors.newPassword && <label className="errorMessage" htmlFor="newPassword">{errors.newPassword}</label>}
+                                            {touched.newPassword && errors.newPassword && <label className="errorMessage text-danger" htmlFor="newPassword">{errors.newPassword}</label>}
                                         </div>
                                     </div>
                                     <div className="errorMessage">{error}</div>
                                     <div className="row">
-                                        <div className=" col-md-6 text-right">
+                                        <div className=" col-md-8 text-right">
                                             <Button onClick={()=>{resetForm();setErrorMessage("")}} />
                                             <button className="ml-3 update_button " type="submit" disabled={isSubmitting || !isValid || !dirty}>
                                                 UPDATE
@@ -92,10 +90,7 @@ const Setting = () => {
                             </div>
                         </form>
                 }
-            </Formik>
-        </div>
-    </div>
-}
+            </Formik>}
 
 
 export default Setting

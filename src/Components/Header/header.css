@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 10px;
+    padding: 10px 20px 10px 10px;
     border-bottom: 1px solid #ddd;
     font-weight: bold;
 }
@@ -28,34 +28,36 @@
     opacity: 1;
 }
 .UserName{
-    size: 13px;
-    font: normal normal 600 16px/24px Nunito;
+    font: normal normal 600 14px/24px Nunito;
     letter-spacing: 0px;
-    color: #333333;
+    color: #5c5c5c;;
     opacity: 1;
     position: relative;
     top: 1px;
+    cursor: pointer;
 }
 .logout{
-    font: normal normal normal 14px/18px Source Sans Pro;
+    font-family: Source_Sans_Pro;
     letter-spacing: 0px;
     color: #333333;
     opacity: 1;
 }
 .rounded{
-    border: 1px solid;
     background-color: white;
     color: #A8A7A7;
-    width: 35px;
-    height: 26px;
+    width: 34px;
+    height: 30px;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #D8D8D8;
     border-radius: 3px;
     opacity: 1;
     display: flex;
     text-align: center;
+    font-style: normal;
     justify-content: center;
     align-items: center;
+    font-family: 'Nunito';
+    font-size: 14px;
 }
 .humber{
     width: 0;

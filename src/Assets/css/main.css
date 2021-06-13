@@ -1,6 +1,7 @@
+
 .btn-primary {
-  background-color: #149D89;
-  border-color: #149D89;
+  background-color: #149D89 !important;
+  border-color: #149D89 !important;
 }
 
 .btn-primary:hover {
@@ -39,6 +40,25 @@
 .dashboard-page {
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.form-group label{
+  font-family: Source_Sans_Pro;
+  color: #333333;
+  font-size: 14px;
+}
+.report-header{
+  border-bottom: 1.5px solid #00000038;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+
+}
+.css-yk16xz-control{
+  border-radius: 0px !important;
 }
 
 @media only screen and (max-width: 600px) {

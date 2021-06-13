@@ -49,7 +49,7 @@ function Home() {
     }
   }
   return (
-    <div className="App">
+    <div className="page_container ">
       <Formik
         initialValues={state}
         validationSchema={APPCONSTANTS.HOME_SCHEMAS.HOME}
@@ -66,48 +66,49 @@ function Home() {
           resetForm
         }) => {
           return (
-            <Form onSubmit={handleSubmit}>
-              <div className="row p-4 home_inputs ">
-                <div className="col-md-4 ">
+            <Form onSubmit={handleSubmit} >
+              <div className="row home_inputs ">
+                <div className="col-md-5 ">
                   <div className="form-row">
-                    <div className="form-group col-md-6 mobile">
+                    <div className="form-group col-md-6 ">
                       <label htmlFor="firstName">First Name</label>
-                      <Field className="form-control" name="firstName" placeholder="FirstName" />
-                      {errors.firstName && touched.firstName && <div className="text-danger">{errors.firstName}</div>}
+                      <Field className="form-control" name="firstName"  />
+                      {errors.firstName && touched.firstName && <div className="text-danger text-danger">{errors.firstName}</div>}
                     </div>
-                    <div className="form-group col-md-6 mobile">
+                    <div className="form-group col-md-6 ">
                       <label htmlFor="lastName">Last Name</label>
-                      <Field className="form-control" name="lastName" placeholder="LastName" />
+                      <Field className="form-control" name="lastName" />
                       {errors.lastName && touched.lastName && <div className="text-danger">{errors.lastName}</div>}
                     </div>
                   </div>
                   <div className="form-row">
                     <div className="col-md-12">
-                      <div className="form-group mobile ">
+                      <div className="form-group  ">
                         <label htmlFor="mobile" >Mobile<span className="requried-field">*</span></label>
-                        <Field className="form-control" type="tel" name="mobile" placeholder="Number" />
-                        {errors.mobile && touched.mobile && <div className="text-error">{errors.mobile}</div>}
+                        <Field className="form-control" type="tel" name="mobile"  />
+                        {errors.mobile && touched.mobile && <div className="text-error text-danger">{errors.mobile}</div>}
                       </div>
                     </div>
                   </div>
                   <div className="form-row">
                     <div className="col-md-12">
-                      <div className="form-group mobile">
+                      <div className="form-group ">
                         <label htmlFor="area">Area</label>
-                        <Field className="form-control" name="area" placeholder="Area" />
+                        <Field className="form-control" name="area"  />
                         {errors.area && touched.area && <div className="text-danger">{errors.area}</div>}
                       </div>
                     </div>
                   </div>
                   <div className="form-row">
                     <div className="col-md-12">
-                      <div className="form-group broadband">
+                      <div className="form-group ">
                         <label htmlFor="existingBroadband">Existing Broadband</label>
                         <Select
                           ref={selectBroadbandRef}
                           options ={APPCONSTANTS.Broadbandlist}
                           onChange={(data) => setFieldValue("existingBroadband", data && data.value)}
                           name="existingBroadband"
+                          placeholder=""
                           defaultValue={values && values.existingBroadband}
                         />
                         {errors.existingBroadband && touched.existingBroadband && <div className="text-danger">{errors.existingBroadband}</div>}
@@ -116,7 +117,7 @@ function Home() {
                   </div>
                   <div className="form-row">
                     <div className="col-md-12">
-                      <div className="form-group broadband">
+                      <div className="form-group ">
                         <label htmlFor="leadType">Lead Type<span className="requried-field">*</span></label>
                         <Select
                           ref={selectLeadRef}
@@ -124,8 +125,9 @@ function Home() {
                           onChange={(data) => setFieldValue("leadType", data && data.value)}
                           name="leadType"
                           defaultValue={values && values.leadType}
+                          placeholder=""
                         />
-                        {errors.leadType && touched.leadType && <div className="text-error">{errors.leadType}</div>}
+                        {errors.leadType && touched.leadType && <div className="text-error text-danger">{errors.leadType}</div>}
                       </div>
                     </div>
                   </div>
