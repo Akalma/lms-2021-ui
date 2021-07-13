@@ -5,6 +5,7 @@ import Pagination from "react-bootstrap/Pagination";
 import useToast from "../../Hooks/Toast";
 import "../../Assets/css/main_app.css";
 import AppContext from "../../Store/AppContext";
+import moment from "moment";
 
 const Report = () => {
   const {spinner} = useContext(AppContext)
@@ -154,15 +155,19 @@ const Report = () => {
                 <th scope="col">Area</th>
                 <th scope="col">Existing Broadband</th>
                 <th scope="col">LeadType</th>
+                <th scope="col">Created By</th>
+                <th scope="col">Created At</th>
               </tr>
             </thead>
             <tbody className="table-text table-Data ">
               {list.map((data, idx) => <tr key={idx}>
-                <td >{data.firstName + data.lastName}</td>
+                <td >{`${data.firstName} ${data.lastName}`}</td>
                 <td>{data.mobile}</td>
                 <td>{data.area}</td>
                 <td>{data.existingBroadband}</td>
                 <td>{data.leadType}</td>
+                <td>{userDetails?.name || "NA"}</td>
+                <td>{moment(data.date).format('MMMM Do, YYYY H:mma')}</td>
               </tr>)}
             </tbody>
           </table>

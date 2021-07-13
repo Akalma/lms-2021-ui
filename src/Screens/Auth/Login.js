@@ -28,7 +28,7 @@ const Login = () => {
     return <div className="login-master-page">
         <div className="lt-ad">
             <h3>Lead Management System</h3>
-            <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter </p>
+            <p>Powered by Akalma Technologies</p>
         </div>
         <div className="main-content">
             <Formik
