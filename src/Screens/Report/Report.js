@@ -36,7 +36,7 @@ const Report = () => {
     "toDate": tempToDate.getTime(),
     "noOfData": pageLimit,
     "startPage": 1,
-    "id": (!userDetails || !userDetails.type) ? userDetails.id : null
+    "id": (!userDetails && !userDetails.type) ? userDetails.id : null
   }
   // ----For fetchdata------//
   const fetchReports = async (isDownload = false, pageNo = 1) => {
