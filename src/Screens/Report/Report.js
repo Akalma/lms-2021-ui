@@ -166,7 +166,7 @@ const Report = () => {
                 <td>{data.area}</td>
                 <td>{data.existingBroadband}</td>
                 <td>{data.leadType}</td>
-                <td>{userDetails?.name || "NA"}</td>
+                <td>{data?.appUsersTo?.name || "NA"}</td>
                 <td>{moment(data.date).format('MMMM Do, YYYY H:mma')}</td>
               </tr>)}
             </tbody>
