@@ -1,4 +1,4 @@
-import React, { useState ,useContext } from "react";
+import React, { useState, useContext } from "react";
 import APPCONSTANTS from '../../Constant/AppConstants';
 import axios from 'axios';
 import Pagination from "react-bootstrap/Pagination";
@@ -8,7 +8,7 @@ import AppContext from "../../Store/AppContext";
 import moment from "moment";
 
 const Report = () => {
-  const {spinner} = useContext(AppContext)
+  const { spinner } = useContext(AppContext)
   const [toDate, setToDate] = useState(null)
   const [fromDate, setFromDate] = useState(null);
   const [list, setList] = useState([]);
@@ -24,7 +24,7 @@ const Report = () => {
   const userDetails = JSON.parse(sessionStorage["userDetails"]);
   const startPages = userDetails.startPage;
 
-// ----for Time and Date---//
+  // ----for Time and Date---//
   let tempFromDate = new Date(fromDate);
   tempFromDate.setHours(0, 0, 0);
 
@@ -36,7 +36,7 @@ const Report = () => {
     "toDate": tempToDate.getTime(),
     "noOfData": pageLimit,
     "startPage": 1,
-    "id": (!userDetails && !userDetails.type) ? userDetails.id : null
+    "id": (userDetails && userDetails.type !== 1 && userDetails.id) || null
   }
   // ----For fetchdata------//
   const fetchReports = async (isDownload = false, pageNo = 1) => {
@@ -48,22 +48,22 @@ const Report = () => {
       const { data } = await axios.post(API, payload);
       setLoading(false);
       spinner.hide()
-      if (isDownload ) {
+      if (isDownload) {
         setSpin(false);
         download_csv(data);
-      } 
-      else{
+      }
+      else {
         setList(data);
       }
-      if(data.length===0){
-        Toast.error({message: APPCONSTANTS.MESSAGES.ERROR.ERROR})
+      if (data.length === 0) {
+        Toast.error({ message: APPCONSTANTS.MESSAGES.ERROR.ERROR })
       }
     } catch (err) {
       spinner.hide()
       if (isDownload)
-      spinner.hide()
-        setSpin(false);
-        Toast.error({message: APPCONSTANTS.MESSAGES.ERROR.ERRORS,err});
+        spinner.hide()
+      setSpin(false);
+      Toast.error({ message: APPCONSTANTS.MESSAGES.ERROR.ERRORS, err });
     }
   }
   // pagination function------//
@@ -74,14 +74,14 @@ const Report = () => {
       let totalPage = Math.ceil(totalCount / pageLimit);
       setTotalPages(totalPage);
     } catch (err) {
-          console.error("Exception occurred in pagination-- ", err)
+      console.error("Exception occurred in pagination-- ", err)
     }
   }
   // -----pagination looping function-----//
   const paginations = (count) => {
     let val = []
     for (let i = 1; i <= count; i++) {
-      val.push(<Pagination.Item className={`controls ${currentPage === i ? 'active' :''}`}
+      val.push(<Pagination.Item className={`controls ${currentPage === i ? 'active' : ''}`}
         onClick={() => { fetchReports(false, i,); setCurrentPage(i) }}>{i}</Pagination.Item>)
     }
     return val;
@@ -106,10 +106,10 @@ const Report = () => {
     fetchReports(false, pre);
   }
   // -----first page----//
-  const firstPage=()=>{
+  const firstPage = () => {
     let first = startPages;
     setCurrentPage(1);
-    fetchReports(false,1)
+    fetchReports(false, 1)
   }
 
   // ---for arranging download csv file formate correctly-----//
@@ -123,29 +123,29 @@ const Report = () => {
   }
   return (<><div className="page_container ">
     <div className="row  ">
-    <div className="col-md-8 mt-1">
-    <div className="report-header">
-      <div className="flx ">
-        <div className="form-group aic">
-          <label htmlFor="fromDate" className="ml-2 from_date">From</label>
-          <input type="date" onChange={(e) => setFromDate(e.target.value)} max={preventMax} name="fromDate" className="form-control form-control-sm ml-2 " />
-        </div>
-        <div className="form-group aic">
-          <label htmlFor="toDate" className="from_date ml-2">To</label>
-          <input type="date" max={new Date()} onChange={(e) => { setToDate(e.target.value); }} max={preventMax} name="toDate" className="form-control form-control-sm ml-2" />
-        </div>
-      </div>
-      <div className="">
-        <div className=" form-group buttons text-right d-flex">
-          <button type="submit" className={`reset_button ${(fromDate ===null || toDate===null) ? 'disabled' : ''}`} onClick={() => {
-            fetchReports();
-            pagesData();
-            setLoading(true);
-          }} >VIEW</button>
-          <button type="Download" className={`ml-2 reset_button ${(fromDate ===null || toDate===null) ? 'disabled' : ''}`} onClick={() => { fetchReports(true); }}><span>DOWNLOAD</span>
-          </button>
-        </div>
-      </div></div>
+      <div className="col-md-8 mt-1">
+        <div className="report-header">
+          <div className="flx ">
+            <div className="form-group aic">
+              <label htmlFor="fromDate" className="ml-2 from_date">From</label>
+              <input type="date" onChange={(e) => setFromDate(e.target.value)} max={preventMax} name="fromDate" className="form-control form-control-sm ml-2 " />
+            </div>
+            <div className="form-group aic">
+              <label htmlFor="toDate" className="from_date ml-2">To</label>
+              <input type="date" max={new Date()} onChange={(e) => { setToDate(e.target.value); }} max={preventMax} name="toDate" className="form-control form-control-sm ml-2" />
+            </div>
+          </div>
+          <div className="">
+            <div className=" form-group buttons text-right d-flex">
+              <button type="submit" className={`reset_button ${(fromDate === null || toDate === null) ? 'disabled' : ''}`} onClick={() => {
+                fetchReports();
+                pagesData();
+                setLoading(true);
+              }} >VIEW</button>
+              <button type="Download" className={`ml-2 reset_button ${(fromDate === null || toDate === null) ? 'disabled' : ''}`} onClick={() => { fetchReports(true); }}><span>DOWNLOAD</span>
+              </button>
+            </div>
+          </div></div>
         <div class="table-responsive-md table_border">
           <table className="table ">
             <thead className="table_style">
@@ -174,7 +174,7 @@ const Report = () => {
         </div>
         {list.length !== 0 && <div className="d-flex justify-content-sm-center  pagination">
           <Pagination>
-          <Pagination.First  className={`controls ${currentPage === 1 ? 'disabled' : ''}`} onClick={()=>firstPage()}/>
+            <Pagination.First className={`controls ${currentPage === 1 ? 'disabled' : ''}`} onClick={() => firstPage()} />
             <Pagination.Prev className={`controls ${currentPage === 1 ? 'disabled' : ''}`} onClick={() => previouspage()} />
             {paginations(totalPages)}
             <Pagination.Ellipsis />
@@ -183,7 +183,7 @@ const Report = () => {
           </Pagination>
         </div>}
       </div>
-  </div>
+    </div>
   </div>
   </>)
 }
