@@ -2,7 +2,7 @@
 import * as Yup from 'yup';
 import "yup-phone";
 
-export let HOSTNAME = `${location.origin}:8089`; // Storing  a  Host  Name in global variable
+export let HOSTNAME = `${window.location.origin}:8089`; // Storing  a  Host  Name in global variable
 if (HOSTNAME !== null && ((HOSTNAME.indexOf('localhost') !== -1)
     || (HOSTNAME.indexOf('127.0.0.1') !== -1)))
     HOSTNAME = "http://localhost:8089";
