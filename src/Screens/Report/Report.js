@@ -8,9 +8,24 @@ import AppContext from "../../Store/AppContext";
 import moment from "moment";
 
 const Report = () => {
-  const { spinner } = useContext(AppContext)
-  const [toDate, setToDate] = useState(null)
+  const { spinner } = useContext(AppContext);
+  const [toDate, setToDate] = useState(null);
+  const cities = [
+    {
+      name: "Bengaluru",
+      code: "BLR"
+    },
+    {
+      name: "Chennai",
+      code: "CHN"
+    },
+    {
+      name: "Hyderabad",
+      code: "HYD"
+    }
+  ]
   const [fromDate, setFromDate] = useState(null);
+  const [selectedCity, setSelectedCity] = useState({ name: "Hyderabad", code: "HYD" });
   const [list, setList] = useState([]);
   const [spin, setSpin] = useState(false);
   const [totalPages, setTotalPages] = useState(null);
@@ -36,7 +51,8 @@ const Report = () => {
     "toDate": tempToDate.getTime(),
     "noOfData": pageLimit,
     "startPage": 1,
-    "id": (userDetails && userDetails.type !== 1 && userDetails.id) || null
+    "id": (userDetails && userDetails.type !== 1 && userDetails.id) || null,
+    "city": (userDetails && userDetails.type !== 1 && userDetails.city) || selectedCity?.code
   }
   // ----For fetchdata------//
   const fetchReports = async (isDownload = false, pageNo = 1) => {
@@ -134,6 +150,16 @@ const Report = () => {
               <label htmlFor="toDate" className="from_date ml-2">To</label>
               <input type="date" max={new Date()} onChange={(e) => { setToDate(e.target.value); }} max={preventMax} name="toDate" className="form-control form-control-sm ml-2" />
             </div>
+            <div className="form-group aic">
+              <label htmlFor="city" className="from_date ml-2">City</label>
+              <select className="form-control form-control-sm ml-2">
+                {
+                  cities.map((city, idx) => <option key={idx} value={city.code} selected={city.code === selectedCity.code} onClick={() => setSelectedCity(city)}>
+                    {city.name}
+                  </option>)
+                }
+              </select>
+            </div>
           </div>
           <div className="">
             <div className=" form-group buttons text-right d-flex">
@@ -141,11 +167,13 @@ const Report = () => {
                 fetchReports();
                 pagesData();
                 setLoading(true);
-              }} >VIEW</button>
-              <button type="Download" className={`ml-2 reset_button ${(fromDate === null || toDate === null) ? 'disabled' : ''}`} onClick={() => { fetchReports(true); }}><span>DOWNLOAD</span>
+              }} >
+                VIEW
               </button>
+              <button type="Download" className={`ml-2 reset_button ${(fromDate === null || toDate === null) ? 'disabled' : ''}`} onClick={() => { fetchReports(true); }}><span>DOWNLOAD</span></button>
             </div>
-          </div></div>
+          </div>
+        </div>
         <div class="table-responsive-md table_border">
           <table className="table ">
             <thead className="table_style">

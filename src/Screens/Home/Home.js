@@ -1,5 +1,5 @@
 
-import React, { useState,useContext , useRef } from 'react';
+import React, { useState, useContext, useRef } from 'react';
 import { Formik, Field, Form } from 'formik';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import APPCONSTANTS from '../../Constant/AppConstants';
@@ -18,7 +18,7 @@ import AppContext from "../../Store/AppContext";
 function Home() {
   const [state, setState] = useState(JSON.parse(JSON.stringify(APPCONSTANTS.HOME_INITIAL_VALUES.HOME_INPUT)));
   const Toast = useToast();
-  const {spinner} = useContext(AppContext);
+  const { spinner } = useContext(AppContext);
   const selectLeadRef = useRef();
   const selectBroadbandRef = useRef();
 
@@ -31,12 +31,15 @@ function Home() {
     try {
       // --------we need remarks and user id as a payload so we are using session storage-----//
       let tmpData = { ...values };
-      spinner.show()
-      tmpData.remarks = JSON.parse(sessionStorage["userDetails"]).remarks;
-      tmpData.addedBy = JSON.parse(sessionStorage["userDetails"]).id;
+      spinner.show();
+
+      let userDetails = JSON.parse(sessionStorage["userDetails"]);
+      tmpData.remarks = userDetails.remarks;
+      tmpData.addedBy = userDetails.id;
+      tmpData.city = userDetails.city;
       await axios.post(APPCONSTANTS.APIS.HOME_DATA, tmpData);
       onClear();
-      Toast.success({message:APPCONSTANTS.MESSAGES.SUCCESS.MESSAGES});
+      Toast.success({ message: APPCONSTANTS.MESSAGES.SUCCESS.MESSAGES });
       // ------from Reset------// 
       resetForm(JSON.parse(JSON.stringify(APPCONSTANTS.HOME_INITIAL_VALUES.HOME_INPUT)));
       spinner.hide()
@@ -45,7 +48,7 @@ function Home() {
     } catch (err) {
       setSubmitting(false)
       spinner.hide()
-      Toast.error({message: APPCONSTANTS.MESSAGES.ERROR.DATAERROR,err});
+      Toast.error({ message: APPCONSTANTS.MESSAGES.ERROR.DATAERROR, err });
     }
   }
   return (
@@ -72,7 +75,7 @@ function Home() {
                   <div className="form-row">
                     <div className="form-group col-md-6 ">
                       <label htmlFor="firstName">First Name</label>
-                      <Field className="form-control" name="firstName"  />
+                      <Field className="form-control" name="firstName" />
                       {errors.firstName && touched.firstName && <div className="text-danger text-danger">{errors.firstName}</div>}
                     </div>
                     <div className="form-group col-md-6 ">
@@ -85,7 +88,7 @@ function Home() {
                     <div className="col-md-12">
                       <div className="form-group  ">
                         <label htmlFor="mobile" >Mobile<span className="requried-field">*</span></label>
-                        <Field className="form-control" type="tel" name="mobile"  />
+                        <Field className="form-control" type="tel" name="mobile" />
                         {errors.mobile && touched.mobile && <div className="text-error text-danger">{errors.mobile}</div>}
                       </div>
                     </div>
@@ -94,7 +97,7 @@ function Home() {
                     <div className="col-md-12">
                       <div className="form-group ">
                         <label htmlFor="area">Area</label>
-                        <Field className="form-control" name="area"  />
+                        <Field className="form-control" name="area" />
                         {errors.area && touched.area && <div className="text-danger">{errors.area}</div>}
                       </div>
                     </div>
@@ -105,7 +108,7 @@ function Home() {
                         <label htmlFor="existingBroadband">Existing Broadband</label>
                         <Select
                           ref={selectBroadbandRef}
-                          options ={APPCONSTANTS.Broadbandlist}
+                          options={APPCONSTANTS.Broadbandlist}
                           onChange={(data) => setFieldValue("existingBroadband", data && data.value)}
                           name="existingBroadband"
                           placeholder=""
@@ -133,7 +136,7 @@ function Home() {
                   </div>
                   <div className="form-row">
                     <div className="col-md-12 flx justify-content-end">
-                      <Button  onClick={() => {resetForm(); onClear();}} disabled={!dirty||isSubmitting}/>
+                      <Button onClick={() => { resetForm(); onClear(); }} disabled={!dirty || isSubmitting} />
                       <button className="ml-3 update_button " type="submit" disabled={isSubmitting || !isValid || !dirty}>
                         SAVE
                       </button>
