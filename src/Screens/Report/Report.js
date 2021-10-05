@@ -150,16 +150,20 @@ const Report = () => {
               <label htmlFor="toDate" className="from_date ml-2">To</label>
               <input type="date" max={new Date()} onChange={(e) => { setToDate(e.target.value); }} max={preventMax} name="toDate" className="form-control form-control-sm ml-2" />
             </div>
-            <div className="form-group aic">
-              <label htmlFor="city" className="from_date ml-2">City</label>
-              <select className="form-control form-control-sm ml-2">
-                {
-                  cities.map((city, idx) => <option key={idx} value={city.code} selected={city.code === selectedCity.code} onClick={() => setSelectedCity(city)}>
-                    {city.name}
-                  </option>)
-                }
-              </select>
-            </div>
+            {
+              userDetails
+              && userDetails.type === 1
+              && <div className="form-group aic">
+                <label htmlFor="city" className="from_date ml-2">City</label>
+                <select className="form-control form-control-sm ml-2" onChange={e => setSelectedCity(cities.find(c => c.code === e.target.value))}>
+                  {
+                    cities.map((city, idx) => <option key={idx} value={city.code} selected={city.code === selectedCity.code}>
+                      {city.name}
+                    </option>)
+                  }
+                </select>
+              </div>
+            }
           </div>
           <div className="">
             <div className=" form-group buttons text-right d-flex">

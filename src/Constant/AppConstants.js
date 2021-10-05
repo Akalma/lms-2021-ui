@@ -5,7 +5,7 @@ import "yup-phone";
 export let HOSTNAME = `${window.location.origin}`; // Storing  a  Host  Name in global variable
 if (HOSTNAME !== null && ((HOSTNAME.indexOf('localhost') !== -1)
     || (HOSTNAME.indexOf('127.0.0.1') !== -1)))
-    HOSTNAME = "http://localhost:8089";
+    HOSTNAME = "http://3.7.48.196";
 
 
 // const phoneRegExp = /^((\\[+]?[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/        
