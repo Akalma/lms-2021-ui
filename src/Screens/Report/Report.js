@@ -155,7 +155,7 @@ const Report = () => {
               && userDetails.type === 1
               && <div className="form-group aic">
                 <label htmlFor="city" className="from_date ml-2">City</label>
-                <select className="form-control form-control-sm ml-2" onChange={e => setSelectedCity(cities.find(c => c.code === e.target.value))}>
+                <select className="form-control-sm ml-2" onChange={e => setSelectedCity(cities.find(c => c.code === e.target.value))}>
                   {
                     cities.map((city, idx) => <option key={idx} value={city.code} selected={city.code === selectedCity.code}>
                       {city.name}
